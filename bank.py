@@ -17,7 +17,7 @@ class Account:
 
 acc1 = Account(0, 1001)
 while True:
-    choice = int(input("Enter your choice: Withdraw(1)   Deposit(2)     View Balance(3)\n"))
+    choice = int(input("Enter your choice: Withdraw(1)   Deposit(2)     View Balance(3)      Exit(4)\n"))
     match(choice):
         case 1:
             acc1.debit(int(input("Enter amount to withdraw: ₹")))
@@ -27,3 +27,6 @@ while True:
             print("Done!\nTotal Updated Balance: ₹",acc1.balance)
         case 3:
             acc1.getbal()
+
+        case 4:
+            break
