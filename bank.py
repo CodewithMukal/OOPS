@@ -72,6 +72,7 @@ root.geometry("600x300")
 root.resizable(FALSE,FALSE)
 root.config(bg="#949F77")
 hd = Label(text= ("Banks of Kazakhistan").upper(), bg="#949F77",fg="#1E2F2B", font="Unispace_Bold 18 bold underline").pack(pady=15)
+acc = Label(text="Account Number Logged In: "+str(acc1.accno),bg="#949F77").place(x= 0, y= 0)
 
 depositmoney = IntVar()
 withdrawmoney = IntVar()
