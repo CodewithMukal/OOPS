@@ -18,7 +18,7 @@ class Account:
     def getbal(self):
         print("Total Balance: ₹",self.balance)
 
-acc1 = Account(1000, 1001)
+acc1 = Account(0, 1001)
 
 root = Tk()
 
@@ -28,9 +28,9 @@ def withdraw():
     balance.pack_forget()
     dep_sub.pack_forget()
 
-    wth_label.pack()
-    wth_ent.pack()
-    wth_sub.pack()
+    wth_label.pack(pady=5)
+    wth_ent.pack(pady=5)
+    wth_sub.pack(pady=5)
 
 def deposit():
     wth_label.pack_forget()
@@ -38,9 +38,9 @@ def deposit():
     balance.pack_forget()
     wth_sub.pack_forget()
 
-    dep_label.pack()
-    dep_ent.pack()
-    dep_sub.pack()
+    dep_label.pack(pady=5)
+    dep_ent.pack(pady=5)
+    dep_sub.pack(pady=5)
 
 def viewbalance():
     dep_label.pack_forget()
@@ -50,7 +50,7 @@ def viewbalance():
     wth_sub.pack_forget()
     dep_sub.pack_forget()
 
-    balance.pack()
+    balance.pack(pady=5)
 
 def wthsubmit():
     w = withdrawmoney.get()
@@ -68,24 +68,30 @@ def depsubmit():
 
 root.title("BANKING APP")
 
-root.geometry("600x600")
-hd = Label(text= ("Banks of Kazakhistan").upper(), font="Roboto 18 bold").pack(pady=15)
+root.geometry("600x300")
+root.resizable(FALSE,FALSE)
+root.config(bg="#949F77")
+hd = Label(text= ("Banks of Kazakhistan").upper(), bg="#949F77",fg="#1E2F2B", font="Unispace_Bold 18 bold underline").pack(pady=15)
 
 depositmoney = IntVar()
 withdrawmoney = IntVar()
 
-wth_btn = Button(text="Withdraw", command=withdraw).pack(pady=5)
-wth_label = Label(text="Enter Withdraw amount: ")
+wth_btn = Button(text="Withdraw",bg="#f4fdaf",fg= "#756B42",font="cooper 12", command=withdraw).pack(pady=5)
+wth_label = Label(text="Enter Withdraw amount: ",font="terminal 10", bg="#949F77")
 wth_ent = Entry(textvariable=withdrawmoney)
-wth_sub = Button(text="Submit", command=wthsubmit)
+wth_sub = Button(text="Submit",bg="#f4fdaf",fg= "#756B42",font="cooper 12", command=wthsubmit)
+Event()
 
-dep_btn = Button(text="Deposit", command=deposit).pack(pady=5)
-dep_label = Label(text="Enter Deposit amount: ")
+dep_btn = Button(text="Deposit",bg="#f4fdaf",fg= "#756B42",font="cooper 12", command=deposit).pack(pady=5)
+dep_label = Label(text="Enter Deposit amount: ",font="terminal 10 ", bg="#949F77")
 dep_ent = Entry(textvariable=depositmoney)
-dep_sub = Button(text="Submit", command=depsubmit)
+dep_sub = Button(text="Submit",bg="#f4fdaf",fg= "#756B42",font="cooper 12",command=depsubmit)
 
-viewbtn = Button(text="View Balance", command=viewbalance).pack(pady=5)
-balance = Label(text= "Total Balance = ₹"+str(acc1.balance), font="Roboto 14 bold")
+viewbtn = Button(text="View Balance",bg="#f4fdaf",fg= "#756B42",font="cooper 12", command=viewbalance).pack(pady=5)
+balance = Label(text= "Total Balance = ₹"+str(acc1.balance), font="terminal 14 ", bg="#949F77")
+
+wth_ent.bind("<Return>", lambda event: wthsubmit())
+dep_ent.bind("<Return>", lambda event: depsubmit())
 
 
 
